@@ -2,4 +2,4 @@
 
 ## Ideaidealy NSUEM (new site)
 
-### Stable version
+### Stable version 1.0
