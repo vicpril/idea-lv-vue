@@ -45,7 +45,7 @@ let api_token = document.head.querySelector('meta[name="api-token"]');
 
 if (api_token) {
    //   window.axios.defaults.params = {api_token: api_token.content};
-   window.axios.defaults.headers.common["Authorization"] =
+   window.axios.defaults.headers.common["WWW-Authorization"] =
       "Bearer " + api_token.content;
 }
 // else {

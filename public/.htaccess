@@ -15,6 +15,6 @@
     RewriteRule ^ index.php [L]
 
     # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteCond %{HTTP:WWW-Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:WWW-Authorization}]
 </IfModule>
