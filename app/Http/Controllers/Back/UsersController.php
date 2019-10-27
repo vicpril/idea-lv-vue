@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Repositories\UsersRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UsersController extends AdminController
 {
@@ -140,4 +141,16 @@ class UsersController extends AdminController
         }
 
     }
+
+    /**
+     * Update user's api_token field
+     */
+    public function updateApiToken(User $user)
+    {
+        $token = Str::random(60);
+        $user->forceFill([
+            'api_token' => $token,
+        ])->save();
+    }
+
 }

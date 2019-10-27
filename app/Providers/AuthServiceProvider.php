@@ -2,15 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-
 use App\Models\Article;
-use App\Policies\ArticlePolicy;
 use App\Models\Job;
+use App\Policies\ArticlePolicy;
 use App\Policies\JobPolicy;
-use App\Models\File;
-use App\Policies\FilePolicy;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -23,9 +19,6 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Model' => 'App\Policies\ModelPolicy',
         Article::class => ArticlePolicy::class,
         Job::class => JobPolicy::class,
-        File::class => FilePolicy::class,
-
-
 
     ];
 
