@@ -14,8 +14,8 @@
 			<p class="lead"><small>@lang('Вопросы и комментарии приветствуются')<br>
 				* @lang('поля обязательные для заполнения')</small></p>
 
-			
-			
+
+
 			<form method="POST" action="{{route('contacts.send')}}">
 				{{csrf_field()}}
 				<div class="form-group">
@@ -46,17 +46,16 @@
 						{{$errors->first('content')}}
 					</div>
 				</div>
-				
-				<div class="">
+				<div class="form-group">
 				 {!! NoCaptcha::display() !!}
 					@if ($errors->has('g-recaptcha-response'))
 							<span class="help-block">
 									<strong>{{ $errors->first('g-recaptcha-response') }}</strong>
 							</span>
 					@endif
-				
+
 				</div>
-				
+
 				<button type="submit" class="btn btn-primary">@lang('Отправить')</button>
 			</form>
 		</div>

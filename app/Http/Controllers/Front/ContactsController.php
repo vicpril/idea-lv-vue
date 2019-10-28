@@ -35,8 +35,6 @@ class ContactsController extends SiteController
 
     public function sendEmail(EmailRequest $request)
     {
-//                 dd($request);
-
         Mail::send(new ContactMail($request));
 
         return redirect(route('contacts'))->with(['message' => __('Сообщение отправлено')]);
