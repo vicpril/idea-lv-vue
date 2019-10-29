@@ -190,7 +190,6 @@
 								id="show_top_menu"
 								v-model="page.show_top_menu"
 								name="show_top_menu"
-								:disabled="true"
 							>Главное меню (горизонтальное)</b-form-checkbox>
 						</div>
 						<div class="form-group">
@@ -254,9 +253,9 @@ export default {
 				title_ru: "",
 				content_ru: "",
 				content_en: "",
-				show_review_menu:false,
-				show_sidebar_menu:false,
-				show_top_menu:true,
+				show_review_menu: false,
+				show_sidebar_menu: false,
+				show_top_menu: true
 			},
 
 			templates: [
