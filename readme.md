@@ -1,4 +1,4 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<p align="center"><img src="https://github.com/vicpril/idea-lv-vue/blob/master/public/images/logo-wide.jpg"></p>
 
 ## Ideaidealy NSUEM (new site)
 
