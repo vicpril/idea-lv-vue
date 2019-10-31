@@ -2,9 +2,9 @@
 
 ## Ideaidealy NSUEM (new site)
 
-### Stable version 1.0
+# Ideas and Ideals
 
-# Ideas and Ideals (science journal)
+### Science Journal
 
 The journal is a peer-reviewed publication. Founded in 2009.
 Founders and Publishers of the Journal:
