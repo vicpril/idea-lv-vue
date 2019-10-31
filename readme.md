@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/vicpril/idea-lv-vue/blob/master/public/images/logo-wide.jpg"></p>
+<p align="center"><img src="https://github.com/vicpril/idea-lv-vue/blob/master/public/images/logo-short-en.jpg"></p>
 
 ## Ideaidealy NSUEM (new site)
 
