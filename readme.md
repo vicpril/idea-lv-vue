@@ -1,10 +1,6 @@
 <p align="center"><img src="https://github.com/vicpril/idea-lv-vue/blob/master/public/images/logo-short-en.jpg"></p>
 
-## Ideaidealy NSUEM (new site)
-
-# Ideas and Ideals
-
-### Science Journal
+# Ideas and Ideals - Science Journal
 
 The journal is a peer-reviewed publication. Founded in 2009.
 Founders and Publishers of the Journal:
