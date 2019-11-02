@@ -1,4 +1,4 @@
-<footer class="py-3 ">
+<footer class="py-2">
    <div class="container">
        <div class="row">
 
