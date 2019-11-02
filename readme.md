@@ -1,6 +1,6 @@
-<p align="center"><img src="https://github.com/vicpril/idea-lv-vue/blob/master/public/images/logo-short-en.jpg"></p>
+<p align="center"><img src="./public/images/logo-short-en.jpg"></p>
 
-# Ideas and Ideals - Science Journal
+# <p align="center">[Ideas and Ideals](http://ideaidealy.nsuem.ru/en) <br><small>Science Journal</small></p>
 
 The journal is a peer-reviewed publication. Founded in 2009.
 Founders and Publishers of the Journal:
@@ -8,8 +8,7 @@ Founders and Publishers of the Journal:
 -  Novosibirsk State Technical University (NSTU)
 -  Novosibirsk State University of Economics and Management (NSUEM)
 
-Certificate of Registration: ПИ № ФС 77-34262 November, 26, 2008.
-Publication frequency: 4 issues per calendar year (31.03; 30.06; 30.09; 30.12)
+Certificate of Registration: ПИ № ФС 77-34262 November, 26, 2008. Publication frequency: 4 issues per calendar year (31.03; 30.06; 30.09; 30.12)
 Included in the list of peer-reviewed journals VAK (the serial № 594).
 The main focus of the journal is research in the areas of Social Philosophy.
 Journal "Ideas and Ideals" is included into the system of the Russian Science Citation Index (RISC) on the platform of eLIBRARY.ru.
@@ -18,82 +17,85 @@ Journal "Ideas and Ideals" is included into the system of the Russian Science Ci
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Requirements
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+-  PHP >= 7.2
+-  MySQL
+-  Laravel 5.8
+-  Node.js, NPM
+-  Vue.js
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Clone the repository into local environment
 
 ```
-Give the example
+git clone https://github.com/ideaidealy/main.git idea
+
+cd idea
 ```
 
-And repeat
+Install composer dependencies
 
 ```
-until finished
+composer install
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Copy the `.env.example` to a new file named `.env`. Set up config in `.env` file according to your environment.
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Set your application key to a random string
 
 ```
-Give an example
+php artisan key:generate
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
+Create database by you own.
+Do migration for you database with seeding test data
 
 ```
-Give an example
+php artisan db:fresh --seed
 ```
 
-## Deployment
+or you can upload data from .sql file
 
-Add additional notes about how to deploy this on a live system
+```
+mysql –u <username> -p <database> < database/dump-full-2019_3.sql
+```
 
-## Built With
+### Using
 
--  [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
--  [Maven](https://maven.apache.org/) - Dependency Management
--  [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+By default you can get an access to Dashboard on `<your_sete_URL>/login` by login `admin` and password `123`.
 
-## Contributing
+You can change admin password using artisan command
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+```
+php artisan changeAdminPassword
+```
 
-## Versioning
+## Development
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+For changing code in Laravel's part of project just do it.
 
-## Authors
+For changing Vue.js scripts (Dashboard components) or SASS install JS dependencies using NPM
 
--  **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
+```
+npm install
+```
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+You can build files using
 
-## License
+```
+npm run dev
+```
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+or in the watch mode
 
-## Acknowledgments
+```
+npm run watch
+```
 
--  Hat tip to anyone whose code was used
--  Inspiration
--  etc
+## Credits
+
+Viktor Prilepin
+
+Do not hesitate to contact me if you have a question by sending an e-mail to [prilepinva@gmail.com](mailto:prilepinva@gmail.com)
