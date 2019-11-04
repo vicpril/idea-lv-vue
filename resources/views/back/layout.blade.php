@@ -88,7 +88,7 @@
    <!-- end modals -->
 
 
-   <!-- <script src="js/main.js"></script> --> -->
+   <!-- <script src="js/main.js"></script> -->
 
    <script src="{{ asset('js/manifest.js') }}"></script>
    <script src="{{ asset('js/vendor.js') }}"></script>
