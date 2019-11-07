@@ -5,7 +5,17 @@
 @endsection
 
 @section('subtitle')
-	{{$subtitle}}
+	<div class="row">
+		<div class="col">
+
+			{{$user->loc->full_name}}
+			@admin
+			<!-- LABEL -->
+			<a href="{{ $user->editLink }}" target="_blank" class="h5 float-right">Редактровать</a>
+		</div>
+	</div>
+    <!-- END LABEL -->
+    @endadmin
 @endsection
 
 @section('content')
@@ -13,7 +23,14 @@
 		<div class="avatar-container">
 			<figure class="figure avatar">
 				<img src="{{ Storage::url($user->avatar) }}" class=" figure-img img-fluid rounded">
-				<figcaption class="figure-caption text-center">{{ $user->loc->short_name }}</figcaption>
+				<figcaption class="figure-caption text-center">
+					@if( Config::get('app.locale') == 'ru' )
+                 		{{$user->loc->short_name}}
+               		@else
+                 		{{ $user->en->last_name }} {{ $user->en->first_name }}
+               		@endif
+
+				</figcaption>
 			</figure>
 		</div>
 	@endif

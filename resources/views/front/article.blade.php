@@ -33,10 +33,14 @@
 	@if(count($article->users) > 0)
 	<span class="text-dark"><strong>@choice('article.author', count($article->users)):</strong></span>
 		<div>
-		
+
 			@foreach($article->users as $user)
 				<strong>
-				 <a class="author-name" href="{{ route('authors.show', $user->alias) }}">{{$user->loc->short_name}}</a>@if(!$loop->last)<span>, </span>@endif
+				    @if( Config::get('app.locale') == 'ru' )
+						<a class="author-name" href="{{ route('authors.show', $user->alias) }}">{{$user->loc->short_name}}</a>@if(!$loop->last)<span>,&ensp;</span>@endif
+					@else
+						<a class="author-name" href="{{ route('authors.show', $user->alias) }}">{{ $user->en->last_name }} {{ $user->en->first_name }}</a>@if(!$loop->last)<span>,&ensp;</span>@endif
+					@endif
 				</strong>
 			@endforeach
 
@@ -58,7 +62,7 @@
 					 <a class="text-info" href="{{ route('tags.show', $tag->alias) }}">{{$tag->loc}}</a>@if(!$loop->last)<span>,&ensp;</span>@endif
 				</li>
 				@endforeach
-		</ul>	
+		</ul>
 		</div>
 	@endif
 

@@ -26,7 +26,7 @@ layout-grid-mode:char'><span style='font-size:10.0pt;mso-fareast-font-family:
 {{--///////////////Список авторов///////////////--}}
 
 {{-- информацию про институт пока не вывожу, т.к. неясно как это нужно делать в сыязи с отказом от институтов
-    
+
             конец комментария --}}
 
     <p class=MsoNormal style='text-indent:1.0cm;tab-stops:49.6pt 154.5pt;
@@ -34,7 +34,7 @@ layout-grid-mode:char'><span style='font-size:10.0pt;mso-fareast-font-family:
             "Times New Roman";mso-fareast-language:RU'>
         @foreach($article->users as $user)
                     {{$user->ru->last_name}} {{$user->ru->first_name}}@if(strlen($user->ru->first_name) - 1 == 1).@endif {{$user->ru->patronymic}}@if(strlen($user->ru->patronymic) - 1 == 1).@endif{{ '' }}@if(!$loop->last),@endif
-        @endforeach             
+        @endforeach
             <span style='text-transform:uppercase'><o:p></o:p></span></span></p>
 
 
@@ -42,7 +42,7 @@ layout-grid-mode:char'><span style='font-size:10.0pt;mso-fareast-font-family:
             layout-grid-mode:char'><span style='font-size:10.0pt;mso-fareast-font-family:
             "Times New Roman";text-transform:uppercase;mso-fareast-language:RU'><o:p>&nbsp;</o:p></span></p>
 
-    
+
     {{--///////////////Список email///////////////--}}
 
     @if($email_on)
@@ -106,7 +106,7 @@ layout-grid-mode:char'><span style='font-size:10.0pt;mso-fareast-font-family:
 @endif
 
 {{--///////////////  doi  ///////////////--}}
-@if($article->doi) 
+@if($article->doi)
 <p class=MsoNormal style='text-indent:1.0cm;tab-stops:49.6pt 154.5pt;
 layout-grid-mode:char'><span class=SpellE><span lang=EN-US style='font-size:
 10.0pt;mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;
@@ -199,11 +199,11 @@ mso-bidi-font-size:11.0pt;mso-ansi-language:EN-US'> <span lang=EN-US style="text
         layout-grid-mode:char'><span style='font-size:10.0pt;mso-fareast-font-family:
         "Times New Roman";mso-fareast-language:RU'>
     @foreach($article->users as $user)
-                {{$user->en->last_name}} {{$user->en->initials}}@if(!$loop->last), @endif
-    @endforeach             
+                {{$user->en->last_name}} {{$user->en->first_name}}@if(!$loop->last), @endif
+    @endforeach
         <span style='text-transform:uppercase'><o:p></o:p></span></span></p>
-    
-    
+
+
         <p class=MsoNormal style='text-indent:1.0cm;tab-stops:49.6pt 154.5pt;
         layout-grid-mode:char'><span style='font-size:10.0pt;mso-fareast-font-family:
         "Times New Roman";text-transform:uppercase;mso-fareast-language:RU'><o:p>&nbsp;</o:p></span></p>
@@ -230,7 +230,7 @@ mso-bidi-font-size:11.0pt;mso-ansi-language:EN-US'> <span lang=EN-US style="text
         "Times New Roman";mso-fareast-language:RU'><o:p>&nbsp;</o:p></span></p>
 
 @endif
-        
+
 {{--/////////////// Title EN///////////////--}}
 
 <p class=MsoNormal style='text-transform: uppercase; text-indent:1.0cm;tab-stops:49.6pt 154.5pt;
