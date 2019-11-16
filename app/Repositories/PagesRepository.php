@@ -134,7 +134,8 @@ class PagesRepository extends Repository
         $page->update([
             'alias' => $data['alias'],
             'template' => $data['template'],
-            'show_top_menu' => (isset($data['show_top_menu'])) ? true : false,
+            // 'show_top_menu' => (isset($data['show_top_menu'])) ? true : false,
+            'show_top_menu' => true,
             'show_sidebar_menu' => (isset($data['show_sidebar_menu'])) ? true : false,
             'show_review_menu' => (isset($data['show_review_menu'])) ? true : false,
 

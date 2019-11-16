@@ -185,13 +185,14 @@
 						<h5 class="h5 mb-0">Отображать меню на странице</h5>
 					</div>
 					<div class="card-body">
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<b-form-checkbox
 								id="show_top_menu"
 								v-model="page.show_top_menu"
 								name="show_top_menu"
 							>Главное меню (горизонтальное)</b-form-checkbox>
-						</div>
+						</div>-->
+
 						<div class="form-group">
 							<b-form-checkbox
 								id="show_sidebar_menu"
