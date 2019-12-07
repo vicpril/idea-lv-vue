@@ -231,6 +231,32 @@
 							</div>
 						</div>
 
+						<label class="h6 text-muted mt-2">Информация для редколлегии и редсовета</label>
+						<div class="row">
+							<div class="col-md pr-md-1">
+								<div class="form-group">
+									<label for="redcol_info_ru">На русском</label>
+									<input
+										type="text"
+										class="form-control"
+										name="redcol_info_ru"
+										v-model="user.redcol_info_ru"
+									/>
+								</div>
+							</div>
+							<div class="col-md pl-md-1">
+								<div class="form-group">
+									<label for="redcol_info_en">На английском</label>
+									<input
+										type="text"
+										class="form-control"
+										name="redcol_info_en"
+										v-model="user.redcol_info_en"
+									/>
+								</div>
+							</div>
+						</div>
+
 						<label class="h6 text-muted mt-3">Место работы (должность)</label>
 						<div class="row">
 							<div class="col-12">
@@ -377,6 +403,15 @@
 							@click.prevent="clearAvatar"
 							class="btn btn-sm btn-outline-primary float-left"
 						>Убрать фотографию</button>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-body">
+						<div class="form-group mb-0">
+							<label>Ссылка на сайте:</label>
+							<a :href="user.link" target="_blank" class="ml-1">{{ user.link }}</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -565,7 +600,9 @@ export default {
 
 			this.user.email =
 				translat.strtr(
-					translat.translat(this.user.full_name.toString().toLowerCase()),
+					translat.translat(
+						this.user.full_name.toString().toLowerCase()
+					),
 					{
 						" ": "-",
 						".": "-"
@@ -585,7 +622,8 @@ export default {
 					} else {
 						f_name = name[1][0];
 						pat = name[1][1];
-						ini = f_name.split("")[0] + "." + pat.split("")[0] + ".";
+						ini =
+							f_name.split("")[0] + "." + pat.split("")[0] + ".";
 					}
 					break;
 				case 3:
@@ -631,7 +669,9 @@ export default {
 				this.user.short_name_en = translat.translat(l_name);
 			}
 			this.user.alias = translat.strtr(
-				translat.translat(this.user.short_name_en.toString().toLowerCase()),
+				translat.translat(
+					this.user.short_name_en.toString().toLowerCase()
+				),
 				{
 					" ": "-",
 					".": "-"

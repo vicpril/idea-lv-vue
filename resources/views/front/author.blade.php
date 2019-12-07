@@ -5,17 +5,17 @@
 @endsection
 
 @section('subtitle')
+<!-- LABEL -->
 	<div class="row">
 		<div class="col">
 
 			{{$user->loc->full_name}}
 			@admin
-			<!-- LABEL -->
 			<a href="{{ $user->editLink }}" target="_blank" class="h5 float-right">Редактровать</a>
+            @endadmin
 		</div>
 	</div>
     <!-- END LABEL -->
-    @endadmin
 @endsection
 
 @section('content')

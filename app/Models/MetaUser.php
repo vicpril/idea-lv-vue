@@ -24,6 +24,7 @@ class MetaUser extends Model
         'initials',
         'degree',
         'post',
+        'redcol_info',
         'jobs',
         'description',
     ];

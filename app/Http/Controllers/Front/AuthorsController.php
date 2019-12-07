@@ -66,6 +66,10 @@ class AuthorsController extends SiteController
 
         $user = ($this->onlyPublished) ? $user->published() : $user;
 
+        $user->articles = $user->articles->sortByDesc(function ($a) {
+            return $a->issue->year;
+        });
+
         $this->vars = array_add($this->vars, 'user', $user);
 
         return $this->renderOutput();

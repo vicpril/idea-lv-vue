@@ -51,6 +51,8 @@ class IssueResource extends JsonResource
                     "title_ru" => $article->ru->title,
                 ];
             }),
+
+            'link' => route('articles') . "?year=$this->year&no=$this->no&part=$this->part",
         ];
     }
 }

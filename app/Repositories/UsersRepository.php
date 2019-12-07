@@ -181,6 +181,7 @@ class UsersRepository extends Repository
             'initials' => $data['initials_ru'],
             'short_name' => $data['short_name_ru'],
             'degree' => $data['degree_ru'],
+            'redcol_info' => $data['redcol_info_ru'],
             'jobs' => (isset($data['jobs_ru'])) ? $data['jobs_ru'] : [],
             'description' => (isset($data['description_ru'])) ? $data['description_ru'] : '',
         ]);
@@ -198,6 +199,7 @@ class UsersRepository extends Repository
             'initials' => $data['initials_en'],
             'short_name' => $data['short_name_en'],
             'degree' => $data['degree_en'],
+            'redcol_info' => $data['redcol_info_en'],
             'jobs' => (isset($data['jobs_en'])) ? $data['jobs_en'] : [],
             'description' => (isset($data['description_en'])) ? $data['description_en'] : '',
         ]);
@@ -233,6 +235,7 @@ class UsersRepository extends Repository
             'initials' => $data['initials_ru'],
             'short_name' => $data['short_name_ru'],
             'degree' => $data['degree_ru'],
+            'redcol_info' => $data['redcol_info_ru'],
             'jobs' => (isset($data['jobs_ru'])) ? $data['jobs_ru'] : [],
             'description' => $data['description_ru'],
         ]);
@@ -250,6 +253,7 @@ class UsersRepository extends Repository
             'initials' => $data['initials_en'],
             'short_name' => $data['short_name_en'],
             'degree' => $data['degree_en'],
+            'redcol_info' => $data['redcol_info_en'],
             'jobs' => (isset($data['jobs_en'])) ? $data['jobs_en'] : [],
             'description' => $data['description_en'],
         ]);

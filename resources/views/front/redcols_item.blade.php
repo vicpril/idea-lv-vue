@@ -10,20 +10,22 @@
 		@else
 			{{$row->user->loc->short_name}}
 		@endif
-	</a>	
+	</a>
 
 	@admin
-		<span> -> </span> 
+		<span> -> </span>
 		<a href="{{ $row->user->editLink }}" class="text-info" target="_blank">Редактировать</a>
     @endadmin
 
-	@isset($row->user->loc->degree)
-	, {{ $row->user->loc->degree }}
-	@endif
-	@if(count($row->user->loc->jobs) > 0)
+	@isset($row->user->loc->redcol_info)
+	, {{ $row->user->loc->redcol_info }}
+    @endif
+    {{--
+        <!-- @if(count($row->user->loc->jobs) > 0)
 		@foreach($row->user->loc->jobs as $job)
-			, {{ $job }}
+        , {{ $job }}
 		@endforeach
-	@endif
+        @endif -->
+    --}}
 	</div>
 </li>

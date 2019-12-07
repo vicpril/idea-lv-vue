@@ -79,6 +79,14 @@
 									<option v-for="(part, index) in partArray" :key="index" :value="part">{{ part }}</option>
 								</select>
 							</div>
+							<div class="form-group mb-0">
+								<label>Ссылка на сайте:</label>
+								<a
+									:href="currentIssue.link"
+									target="_blank"
+									class="ml-1"
+								>{{ currentIssue.link }}</a>
+							</div>
 						</div>
 						<div class="card-footer">
 							<button
@@ -225,7 +233,9 @@ export default {
 		},
 		setFullNo() {
 			this.currentIssue.full_no =
-				(this.currentIssue.year - 2009 - 1) * 4 + 2 + this.currentIssue.no;
+				(this.currentIssue.year - 2009 - 1) * 4 +
+				2 +
+				this.currentIssue.no;
 		},
 		saveIssue() {
 			var data = Object.assign({}, this.currentIssue);

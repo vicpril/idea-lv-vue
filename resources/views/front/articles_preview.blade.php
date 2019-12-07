@@ -2,13 +2,16 @@
     @admin
      <!-- LABEL -->
       <div class="row">
-        ID: {{$article->id}}
-        @if($article->status->type)
-           <span class="badge badge-pill badge-success mr-2">Опубликована</span>
-        @else
-           <span class="badge badge-pill badge-danger mr-2">Черновик</span>
-        @endif
-        <a href="{{ $article->editLink }}" target="_blank">Редактровать</a>
+        <div class="col alert bg-light border p-1 px-3 mb-2">
+
+            ID: {{$article->id}}
+            @if($article->status->type)
+            <span class="badge badge-pill badge-success mr-2">Опубликована</span>
+            @else
+            <span class="badge badge-pill badge-danger mr-2">Черновик</span>
+            @endif
+            <a href="{{ $article->editLink }}" target="_blank">Редактровать</a>
+        </div>
       </div>
       <!-- END LABEL -->
     @endadmin
@@ -16,7 +19,7 @@
          <h5 class="">
             <a class="article-title" href="{{ route('article', $article->alias) }}">{{ $article->loc->title }}</a>
          </h5>
-    
+
             @foreach($article->users as $user)
                @if( Config::get('app.locale') == 'ru' )
                   <a class="author-name" href="{{ route('authors.show', $user->alias) }}">{{$user->loc->short_name}}</a>@if(!$loop->last)<span>,&ensp;</span>@endif
@@ -24,7 +27,7 @@
                   <a class="author-name" href="{{ route('authors.show', $user->alias) }}">{{ $user->en->last_name }} {{ $user->en->first_name }}</a>@if(!$loop->last)<span>,&ensp;</span>@endif
                @endif
             @endforeach
-    
+
          @if($article->doi)
          <div class="doi py-1">
             <span class="text-dark"><strong>DOI: </strong></span>
@@ -61,7 +64,7 @@
             </ul>
          </div>
          <div class="collapse annotation" id="annotation-{{ $article->id }}">
-         @if($article->udk)
+         @if($article->udk && app()->getLocale() === 'ru')
             <div class="article-section article-udk">
                <span><strong>@lang('УДК'): </strong></span>{{ $article->udk }}
             </div>

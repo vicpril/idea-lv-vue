@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    @if($issue)   
+    @if($issue)
 
             @if($issue->locTitle)
             <h3 class="category-title mb-4">
@@ -22,7 +22,7 @@
 				@if(count($issue->articles) > 0 )
 
 						@foreach ($issue->articles as $article)
-								@if( $loop->first || $article->categories[0]->loc !== $issue->articles[$loop->index - 1]->categories[0]->loc ) 
+								@if( $loop->first || $article->categories[0]->loc !== $issue->articles[$loop->index - 1]->categories[0]->loc )
 										<h3 class="category-title mb-4">
 												@include('front.components.categories_link', ['categories' => $article->categories])
 											</h3>
@@ -44,9 +44,9 @@
                     {!! $category !!}
                     </h3>
                             @foreach($articles as $article)
-                                
+
                                 @include('front.articles_preview', ['article'=>$article])
-        
+
                             @endforeach
         </section>
         @endforeach
@@ -85,7 +85,7 @@
     <script>
     $('.toTop').on('click', function(event) {
 			event.preventDefault();
-			$('html, body').animate({ scrollTop: 0 }, 'slow');         
+			$('html, body').animate({ scrollTop: 0 }, 'slow');
 		});
     </script>
 @endpush
