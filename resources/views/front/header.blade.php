@@ -10,7 +10,11 @@
     </div>
 </div>
 @endadmin
-<header class="blog-header py-0 mt-4">
+@admin()
+    <header class="blog-header py-0 mt-4">
+@else
+    <header class="blog-header py-0">
+@endif
     <div class="container">
         <div class="header-image">
             <div class="primary-overlay">
