@@ -43,9 +43,12 @@
 				<!-- END AUTHORS -->
 
 				<!-- CATEGORIES	 -->
-<!-- 				<article-profile-categories v-model="article.categories"></article-profile-categories> -->
-				<article-profile-categories :value="article.categories" @input="updateCategories" :errors="errors"></article-profile-categories>
-
+				<!-- 				<article-profile-categories v-model="article.categories"></article-profile-categories> -->
+				<article-profile-categories
+					:value="article.categories"
+					@input="updateCategories"
+					:errors="errors"
+				></article-profile-categories>
 
 				<!-- END CATEGORIES	 -->
 
@@ -71,10 +74,10 @@
 					<div class="card-header">
 						<h5 class="h5 mb-0">Дополнительные поля</h5>
 					</div>
-					<!-- UDK -->
+					<!-- УДК -->
 					<div class="card-body">
 						<div class="d-flex">
-							<label for="udc" class="form-title h6 mr-2 my-auto">UDK:</label>
+							<label for="udc" class="form-title h6 mr-2 my-auto">УДК:</label>
 							<input type="text" class="form-control align-self-center" name="udk" v-model="article.udk" />
 						</div>
 					</div>
@@ -227,7 +230,7 @@
 								/>
 								<span data-checked="✓" data-unchecked="✕" class="switch-slider"></span>
 							</label>
-							<input type="text" name="status" :value="article.status" hidden/>
+							<input type="text" name="status" :value="article.status" hidden />
 						</div>
 						<div class="form-group mb-0" v-if="article.updated_at">
 							<span class="text-muted">
@@ -237,7 +240,6 @@
 						</div>
 					</div>
 					<div class="card-footer">
-						
 						<button
 							class="btn btn-link text-danger float-left sticky-top"
 							v-if="article.id"
@@ -483,7 +485,8 @@ export default {
 				})
 				.then(() => {
 					this.collapsed.text =
-						this.article.text_ru !== "" || this.article.text_ru !== ""
+						this.article.text_ru !== "" ||
+						this.article.text_ru !== ""
 							? false
 							: true;
 				});
@@ -506,11 +509,10 @@ export default {
 				return "is-invalid";
 			}
 		},
-		
-		updateCategories(value) {
-			this.article.categories = value
-		},
 
+		updateCategories(value) {
+			this.article.categories = value;
+		}
 	}
 };
 </script>
