@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use App\Http\Requests\EmailRequest;
-use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -19,7 +18,7 @@ class ContactMail extends Mailable
      */
     public function __construct(EmailRequest $request)
     {
-        $this->email = $request;
+        $this->request = $request;
     }
 
     /**
@@ -29,10 +28,10 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from($this->email->email, $this->email->name)
-        // ->to(config('settings.adminEmail'))
+        return $this->from($this->request->email, 'Научный журнал "Идеи и Идеалы"')
             ->to(User::where('alias', 'admin')->first()->email)
-            ->subject($this->email->subject)
-            ->view('email.contactmail')->with('email', $this->email);
+            ->subject('Письмо из контактной формы')
+            ->view('email.contactmail')
+            ->with('request', $this->request);
     }
 }

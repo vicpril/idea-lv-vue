@@ -3,21 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 // use DB;
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\UserResource;
-use App\Repositories\UsersRepository;
 use App\Http\Resources\UserListResource;
+use App\Http\Resources\UserResource;
+use App\Models\User;
+use App\Repositories\UsersRepository;
+use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     protected $repository;
-  
-    public function __construct (UsersRepository $u_rep) {
-      $this->repository = $u_rep;
+
+    public function __construct(UsersRepository $u_rep)
+    {
+        $this->repository = $u_rep;
     }
-  
+
     /**
      * Display a listing of the resource.
      *
@@ -30,8 +31,8 @@ class UsersController extends Controller
 
         return UserResource::collection($users);
     }
-  
-     /**
+
+    /**
      * Get a list of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -83,7 +84,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        
+
     }
 
     /**
@@ -112,5 +113,5 @@ class UsersController extends Controller
             return response()->json($result);
         }
     }
-    
+
 }
