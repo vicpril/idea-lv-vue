@@ -25,10 +25,10 @@ class EmailRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'name' => 'required|max:50',
-            // 'subject' => 'required|max:250',
-            // 'content' => 'required',
-            // 'g-recaptcha-response' => 'required|captcha',
+            'name' => 'required|max:100',
+            'subject' => 'required|max:250',
+            'content' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
         ];
     }
 }
