@@ -29,7 +29,7 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from($this->request->email, 'Научный журнал "Идеи и Идеалы"')
+        return $this->from(env('MAIL_ADDRESS'), 'Научный журнал "Идеи и Идеалы"')
             ->to(User::where('alias', 'admin')->first()->email)
             ->subject('Письмо из контактной формы')
             ->view('email.contactmail')
