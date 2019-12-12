@@ -164,7 +164,7 @@ class UsersRepository extends Repository
         $user = $this->model->make([
             'alias' => $alias,
             'email' => $data['email'],
-            'password' => bcrypt('123'),
+            // 'password' => bcrypt('123'),
             'role' => 'author',
             'orcid' => (isset($data['orcid'])) ? $data['orcid'] : null,
             'avatar' => (isset($data['avatar'])) ? $data['avatar'] : null,
@@ -221,7 +221,7 @@ class UsersRepository extends Repository
         $user->update([
 //             'alias' => $alias,
             'email' => $data['email'],
-            'password' => bcrypt('123'),
+            // 'password' => bcrypt('123'),
             'orcid' => (isset($data['orcid'])) ? $data['orcid'] : null,
             'avatar' => (isset($data['avatar'])) ? $data['avatar'] : null,
         ]);
