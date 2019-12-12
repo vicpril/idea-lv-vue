@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
         $rules = [
             'full_name' => 'required|max:150',
             'alias' => 'max:150|unique:users,alias',
-            'email' => 'required|email|max:150|unique:users,email',
+            'email' => 'required|email|max:150',
             'last_name_ru' => 'required|max:150',
             'first_name_ru' => 'required|max:150',
             'patronymic_ru' => 'max:150',
@@ -52,7 +52,7 @@ class UserRequest extends FormRequest
             case 'PUT':
                 return [
                     'alias' => 'max:100|unique:users,alias,' . $this->user->id,
-                    'email' => 'required|email|max:100|unique:users,email,' . $this->user->id,
+                    // 'email' => 'required|email|max:100|unique:users,email,' . $this->user->id,
                 ] + $rules;
             default:
                 return $rules;
