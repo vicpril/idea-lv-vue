@@ -25,7 +25,8 @@ class ArticleRequest extends FormRequest
     {
 
         $rules = [
-            'title_ru' => 'required|max:250|unique:meta_articles,title',
+            // 'title_ru' => 'required|max:250|unique:meta_articles,title',
+            'title_ru' => 'required|max:250',
             'title_en' => 'required|max:250',
             'users' => 'array|nullable',
             'categories' => 'required|numeric',
@@ -40,7 +41,7 @@ class ArticleRequest extends FormRequest
                 return $rules;
             case 'PUT':
                 return [
-                    'title_ru' => 'required|max:250|unique:meta_articles,title,' . $this->article->ru->id,
+                    // 'title_ru' => 'required|max:250|unique:meta_articles,title,' . $this->article->ru->id,
                 ] + $rules;
             default:
                 return $rules;
