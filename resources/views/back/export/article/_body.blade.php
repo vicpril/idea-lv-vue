@@ -20,7 +20,7 @@ style='font-size:12.0pt;font-family:"Times New Roman","serif"'><o:p>&nbsp;</o:p>
 font-family:"Times New Roman","serif"'>{{$user->ru->degree}}</span><br>@endif</p>
     @if( $user->ru->jobs )
         @foreach( $user->ru->jobs as $job )
-            <i>{{$job}}</i>@if( $loop->index !== count($user->jobs) - 1 );@else.@endif
+            <i>{{$job}}</i>@if( $loop->index !== count($user->ru->jobs) - 1 );@else.@endif
             <br>
         @endforeach
     @endif
@@ -117,15 +117,19 @@ style='font-size:12.0pt;font-family:"Times New Roman","serif"'><o:p>&nbsp;</o:p>
 --}}
 
 {{--////Даты////--}}
+@if($article->date_arrival)
 <p class=MsoNormal style='line-height:115%'><span lang=EN-US style='font-size:
 12.0pt;line-height:115%;font-family:"Times New Roman","serif";
 mso-ansi-language:EN-US'>Статья поступила в редакцию @articleDate($article->date_arrival).<o:p></o:p></span></p>
+@endif
 
+@if($article->date_review)
 <p class=MsoNormal style='line-height:115%'><span lang=EN-US style='font-size:
 12.0pt;line-height:115%;font-family:"Times New Roman","serif";
 mso-ansi-language:EN-US'>Статья прошла рецензирование @articleDate($article->date_review).</span><span
 lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
 mso-ansi-language:EN-US'><o:p></o:p></span></p>
+@endif
 
 {{--разрыв--}}
 <p class=MsoNormal style='line-height:115%'><span style='font-size:12.0pt;
@@ -160,7 +164,7 @@ normal'><span lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:
 font-family:"Times New Roman","serif"'>{{$user->en->degree}}</span><br>@endif</p>
     @if( $user->en->jobs )
         @foreach( $user->en->jobs as $job )
-            <i>{{$job}}</i>@if( $loop->index !== count($user->jobs) - 1 );@else.@endif
+            <i>{{$job}}</i>@if( $loop->index !== count($user->en->jobs) - 1 );@else.@endif
             <br>
         @endforeach
     @endif
@@ -244,15 +248,19 @@ lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
 mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
 
 {{--////Dates////--}}
+@if($article->date_arrival)
 <p class=MsoNormal style='line-height:115%'><span lang=EN-US style='font-size:
 12.0pt;line-height:115%;font-family:"Times New Roman","serif";
 mso-ansi-language:EN-US'>The article was received on @articleDate($article->date_arrival).<o:p></o:p></span></p>
+@endif
 
+@if($article->date_review)
 <p class=MsoNormal style='line-height:115%'><span lang=EN-US style='font-size:
 12.0pt;line-height:115%;font-family:"Times New Roman","serif";
 mso-ansi-language:EN-US'>The article was reviewed on @articleDate($article->date_review).</span><span
 lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
 mso-ansi-language:EN-US'><o:p></o:p></span></p>
+@endif
 
 <span style='font-size:11.0pt;line-height:115%;
 font-family:"Times New Roman","serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:

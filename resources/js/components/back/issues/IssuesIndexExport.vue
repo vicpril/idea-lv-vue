@@ -1,14 +1,44 @@
 <template>
 	<form method="POST" id="formExport">
-		<input type="hidden" name="_token" :value="csrf">
+		<input type="hidden" name="_token" :value="csrf" />
 		<div class="card">
 			<div class="card-header d-flex">
 				<h5 class="mr-1 my-auto">Выгрузка статей в шаблоны</h5>
 			</div>
-			<div class="card-body">
+			<div class="card-body text-center py-4">
+				<div v-if="exportDisabled" class="text-muted">Выберите статьи для выгрузки из списка статей тома</div>
+				<div v-if="!exportDisabled" class="text-muted mb-2">
+					Выбрано статей:
+					<strong>{{ articles.length }}</strong>
+				</div>
+
+				<div v-if="!exportDisabled" class="btn-group float-center">
+					<button
+						id="tooltip-button"
+						type="button"
+						class="btn btn-success dropdown-toggle"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false"
+						:disabled="exportDisabled"
+					>Выгрузить</button>
+					<div class="dropdown-menu">
+						<button type="submit" class="dropdown-item" @click.prevent="doExport('rinc')">РИНЦ</button>
+						<button type="submit" class="dropdown-item" @click.prevent="doExport('content')">Содержание</button>
+						<button type="submit" class="dropdown-item" @click.prevent="doExport('article')">Статья</button>
+						<button type="submit" class="dropdown-item" @click.prevent="doExport('authors')">Наши авторы</button>
+						<button
+							type="submit"
+							class="dropdown-item"
+							@click.prevent="doExport('emails')"
+						>Список E-mail'ов</button>
+					</div>
+				</div>
+			</div>
+			<div class="card-body d-none">
 				<div class="form-group">
 					<label class="h6">Название журнала</label>
-					<input type="text" class="form-control" v-model="exportIssue.title" name="title">
+					<input type="text" class="form-control" v-model="exportIssue.title" name="title" />
 				</div>
 				<div class="form-group">
 					<label class="h6">
@@ -25,7 +55,7 @@
 						v-model="exportIssue.issn"
 						placeholder="хххх-хххх"
 						name="issn"
-					>
+					/>
 				</div>
 
 				<div class="form-group">
@@ -36,19 +66,15 @@
 						name="emails"
 					>Отображать email у автора, если он редактировался</b-form-checkbox>
 				</div>
-				<input
-					name="issue"
-					:value="issue"
-					hidden
-				>
+				<input name="issue" :value="issue" hidden />
 				<input
 					v-for="(article, index) in articles"
 					:key="index"
 					name="articles[]"
 					:value="article"
 					hidden
-				>
-				<hr>
+				/>
+				<hr />
 				<div class="btn-group float-right">
 					<button
 						id="tooltip-button"
@@ -64,7 +90,11 @@
 						<button type="submit" class="dropdown-item" @click.prevent="doExport('content')">Содержание</button>
 						<button type="submit" class="dropdown-item" @click.prevent="doExport('article')">Статья</button>
 						<button type="submit" class="dropdown-item" @click.prevent="doExport('authors')">Наши авторы</button>
-						<button type="submit" class="dropdown-item" @click.prevent="doExport('emails')">Список E-mail'ов</button>
+						<button
+							type="submit"
+							class="dropdown-item"
+							@click.prevent="doExport('emails')"
+						>Список E-mail'ов</button>
 					</div>
 					<!-- <b-tooltip target="tooltip-button">Выберите статьи для выгрузки</b-tooltip> -->
 				</div>
