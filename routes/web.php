@@ -88,4 +88,8 @@ Route::group(
 
         Route::name('page')->get('{pageAlias}', 'PagesController@index');
 
+        Route::name('old-article')->get('{cat}/{art}', function () {
+            return redirect('http://old-'. config('app.url') . $_SERVER['REQUEST_URI']);
+        });
+
     });
