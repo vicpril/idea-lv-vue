@@ -91,9 +91,9 @@ Route::group(
         /**
          * Fix links on old site version
          */
-        Route::name('old-article')->get('{cat}/{slug}', 'OldRouteController@fixRoute');
-        // Route::name('old-article')->get('{cat}/{slug}', function () {
-        //     return redirect('http://old-'. config('app.url') . $_SERVER['REQUEST_URI']);
-        // });
+        // Route::name('old-article')->get('{cat}/{slug}', 'OldRouteController@fixRoute');
+        Route::name('old-article')->get('{cat}/{slug}', function () {
+            return redirect('http://old-'. config('app.url') . $_SERVER['REQUEST_URI']);
+        });
 
     });
