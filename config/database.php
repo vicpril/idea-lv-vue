@@ -57,9 +57,9 @@ return [
         'wordpress' => [ // for WordPress database (used by Corcel)
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'topmollru_ide',
-            'username'  => 'root',
-            'password'  => '',
+            'database'  => env('DB_WP_DATABASE', 'forge'),
+            'username'  => env('DB_WP_USERNAME', 'forge'),
+            'password'  => env('DB_WP_PASSWORD', ''),
             'charset'   => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix'    => 'wp_',

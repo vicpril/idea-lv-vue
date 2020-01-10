@@ -88,8 +88,12 @@ Route::group(
 
         Route::name('page')->get('{pageAlias}', 'PagesController@index');
 
-        Route::name('old-article')->get('{cat}/{art}', function () {
-            return redirect('http://old-'. config('app.url') . $_SERVER['REQUEST_URI']);
-        });
+        /**
+         * Fix links on old site version
+         */
+        Route::name('old-article')->get('{cat}/{slug}', 'OldRouteController@fixRoute');
+        // Route::name('old-article')->get('{cat}/{slug}', function () {
+        //     return redirect('http://old-'. config('app.url') . $_SERVER['REQUEST_URI']);
+        // });
 
     });
