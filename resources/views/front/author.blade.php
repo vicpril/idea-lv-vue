@@ -43,6 +43,12 @@
 		@endif
 	</div>
 
+	@if($user->email && $user->emailHost !== 'localhost.lo')
+	<div class="row mt-4 mx-2">
+		<span class="user-email"><strong>Email: </strong>{{ $user->email }}</span>
+	</div>
+	@endif
+
 	<div class="row mt-4 mx-2">
 		@if(count($user->articles) > 0 )
 			<h4 class="text-uppercase text-center">@lang('Материалы автора'):</h4>
