@@ -31,14 +31,23 @@ class MetaArticle extends Model
         return $this->belongsTo('App\Models\Article');
     }
 
-    public function file()
-    {
-        return $this->belongsTo('App\Models\File');
-    }
+    // public function file()
+    // {
+    //     return $this->belongsTo('App\Models\File');
+    // }
 
     public function getFileTitleAttribute()
     {
         return view("front.components.file_title_$this->lang")->with('article', $this->article)->render();
+    }
+
+    public function getFileNameAttribute()
+    {
+        if ($this->file) {
+            $tmp = explode('/', $this->file);
+            return end($tmp);
+        } 
+        return null;
     }
 
 }

@@ -94,6 +94,15 @@ class Article extends Model
         return $this->categories()->first();
     }
 
+    /**
+     * @return ruFile || null if Ru locale
+     * @return locFile || or ruFile || null if En locale
+     */
+    public function getFileAttribute()
+    {
+        return ($this->loc->file) ?: ($this->ru->file) ?: null ;
+    }
+
     /*
      *   Scopes
      */

@@ -608,7 +608,7 @@ export default {
 						".": "-"
 					}
 				) + "@localhost.lo";
-			var f_name, l_name, pat, ini;
+			var f_name, l_name, pat, ini, ini_en;
 			switch (name.length) {
 				case 1:
 					l_name = name[0];
@@ -619,11 +619,12 @@ export default {
 					if (name[1].length == 1) {
 						f_name = name[1][0];
 						ini = f_name.split("")[0] + ".";
+						ini_en = translat.translat(f_name.split("")[0]) + ".";
 					} else {
 						f_name = name[1][0];
 						pat = name[1][1];
-						ini =
-							f_name.split("")[0] + "." + pat.split("")[0] + ".";
+						ini = f_name.split("")[0] + "." + pat.split("")[0] + ".";
+						ini_en = translat.translat(f_name.split("")[0]) + ".";
 					}
 					break;
 				case 3:
@@ -631,20 +632,24 @@ export default {
 					f_name = name[1];
 					pat = name[2];
 					ini = f_name.split("")[0] + "." + pat.split("")[0] + ".";
+					ini_en = translat.translat(f_name.split("")[0]) + ".";
 					break;
 			}
 
 			if (f_name) {
 				this.user.first_name_ru = f_name;
 				this.user.first_name_en = translat.translat(f_name);
+				this.user.short_name_en = translat.translat(f_name);
 			} else {
 				this.user.first_name_ru = "";
 				this.user.first_name_en = "";
+				this.user.short_name_en = "";
 			}
 
 			if (l_name) {
 				this.user.last_name_ru = l_name;
 				this.user.last_name_en = translat.translat(l_name);
+				this.user.short_name_en = translat.translat(l_name) + " " + this.user.short_name_en;
 			} else {
 				this.user.last_name_ru = "";
 				this.user.last_name_en = "";
@@ -652,21 +657,23 @@ export default {
 
 			if (pat) {
 				this.user.patronymic_ru = pat;
-				this.user.patronymic_en = translat.translat(pat);
+				// this.user.patronymic_en = translat.translat(pat);
+				this.user.patronymic_en = "";
 			} else {
 				this.user.patronymic_ru = "";
 				this.user.patronymic_en = "";
 			}
 			if (ini) {
 				this.user.initials_ru = ini;
-				this.user.initials_en = translat.translat(ini);
+				// this.user.initials_en = translat.translat(ini);
+				this.user.initials_en = ini_en;
 				this.user.short_name_ru = l_name + " " + ini;
-				this.user.short_name_en = translat.translat(l_name + " " + ini);
+				// this.user.short_name_en = translat.translat(l_name) + " " + ini_en;
 			} else {
 				this.user.initials_ru = "";
 				this.user.initials_en = "";
 				this.user.short_name_ru = l_name;
-				this.user.short_name_en = translat.translat(l_name);
+				// this.user.short_name_en = translat.translat(l_name);
 			}
 			this.user.alias = translat.strtr(
 				translat.translat(

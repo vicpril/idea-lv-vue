@@ -82,6 +82,13 @@
 		</div>
 	@endif
 
+	@if( Config::get('app.locale') == 'en' && $article->en->file)
+		<div class="article-doi mb-3">
+			<span class="text-dark d-block"><strong>The English original of the article is available here:</strong></span>
+			<a href="{{ Storage::url($article->en->file) }}" target="_blank">{{ $article->en->fileName }}</a>
+		</div>
+	@endif
+
 	@if($article->file_audio)
 		<div class="article-doi mb-3">
 			<span class="text-dark d-block"><strong>@lang('Вы можете прослушать аудио версию статьи'):</strong></span>
