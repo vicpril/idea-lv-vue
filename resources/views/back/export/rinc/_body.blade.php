@@ -174,7 +174,7 @@ layout-grid-mode:char'><span style='font-size:10.0pt;mso-fareast-font-family:
 mso-fareast-language:RU'> </span><span style='font-size:10.0pt;mso-fareast-font-family:
 "Times New Roman";mso-fareast-language:RU'>поступления статьи в редакцию</span><span lang=EN-US
 style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
-EN-US;mso-fareast-language:RU'>: {{$article->date_arrival}}<o:p></o:p></span></p>
+EN-US;mso-fareast-language:RU'>: @articleDate($article->date_arrival)<o:p></o:p></span></p>
 @endif
 
 <p class=MsoNormal style='text-indent:1.0cm'><span lang=EN-US style='font-size:
