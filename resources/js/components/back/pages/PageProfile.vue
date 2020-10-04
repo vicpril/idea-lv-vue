@@ -207,6 +207,13 @@
 								name="show_review_menu"
 							>Вертикальное меню (Информация для авторов)</b-form-checkbox>
 						</div>
+						<div class="form-group">
+							<b-form-checkbox
+								id="show_tag_menu"
+								v-model="page.show_tag_menu"
+								name="show_tag_menu"
+							>Вертикальное меню (Поиск)</b-form-checkbox>
+						</div>
 					</div>
 				</div>
 				<!-- END STATUS -->
@@ -256,7 +263,11 @@ export default {
 				content_en: "",
 				show_review_menu: false,
 				show_sidebar_menu: false,
-				show_top_menu: true
+				show_top_menu: true,
+				show_tag_menu: {
+					type: Boolean,
+					value: true
+				}
 			},
 
 			templates: [

@@ -24,6 +24,7 @@ class PageResource extends JsonResource
             "show_top_menu" => $this->show_top_menu,
             "show_sidebar_menu" => $this->show_sidebar_menu,
             "show_review_menu" => $this->show_review_menu,
+            "show_tag_menu" => $this->show_tag_menu,
 
             "created_at" => $this->created_at->format('Y-m-d H:i'),
             "updated_at" => $this->updated_at->format('Y-m-d H:i'),

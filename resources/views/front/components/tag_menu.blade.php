@@ -1,3 +1,4 @@
+@if($tag_menu)
 <div class="card shadow mb-3">
 		<div class="card-body">
 			 <div class="mb-3">
@@ -49,3 +50,4 @@
 			 </div>
 		</div>
  </div>
+ @endif

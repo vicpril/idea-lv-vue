@@ -6,7 +6,9 @@ use App\Models\User;
 use App\Repositories\ArticlesRepository;
 use App\Repositories\RedcolsRepository;
 use App\Repositories\UsersRepository;
+use App\Models\Page;
 use Config;
+
 
 class AuthorsController extends SiteController
 {
@@ -27,6 +29,9 @@ class AuthorsController extends SiteController
 
     public function index()
     {
+        $page = Page::where('template', 'authors')->first();
+
+        $this->setMenu($page);
 
         $this->setStatus();
 
@@ -77,6 +82,10 @@ class AuthorsController extends SiteController
 
     public function redcols()
     {
+        $page = Page::where('template', 'redkollegiya')->first();
+
+        $this->setMenu($page);
+
         $this->setStatus();
 
         $this->prepareStolMenu();

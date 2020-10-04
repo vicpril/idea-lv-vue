@@ -44,6 +44,7 @@ class PagesController extends SiteController
             case 'tags':
             case 'authors':
             case 'contacts':
+                $this->setMenu($page);
                 return redirect(url("/$page->template"));
                 break;
 
@@ -54,6 +55,10 @@ class PagesController extends SiteController
                 return $this->renderOutput();
                 break;
         }
+    }
+
+    public function get() {
+        return $this->page;
     }
 
 }

@@ -138,6 +138,7 @@ class PagesRepository extends Repository
             'show_top_menu' => true,
             'show_sidebar_menu' => (isset($data['show_sidebar_menu'])) ? true : false,
             'show_review_menu' => (isset($data['show_review_menu'])) ? true : false,
+            'show_tag_menu' => (isset($data['show_tag_menu'])) ? true : false,
 
         ]);
 

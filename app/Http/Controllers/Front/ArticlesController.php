@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Repositories\ArticlesRepository;
 use App\Repositories\IssuesRepository;
 use Illuminate\Http\Request;
+use App\Models\Page;
 
 class ArticlesController extends SiteController
 {
@@ -130,6 +131,10 @@ class ArticlesController extends SiteController
      */
     public function archive()
     {
+        $page = Page::where('template', 'archive')->first();
+
+        $this->setMenu($page);
+
         $this->setStatus();
 
         $this->prepareStolMenu();

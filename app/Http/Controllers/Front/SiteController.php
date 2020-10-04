@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Page;
 use App\Repositories\MenusRepository;
 use App\Repositories\TagsRepository;
+use App\Repositories\PagesRepository;
 
 class SiteController extends Controller
 {
@@ -24,6 +25,8 @@ class SiteController extends Controller
     protected $u_rep;
     // ... tags
     protected $t_rep;
+    // ... pages
+    protected $p_rep;
 
     protected $keywords;
     protected $meta_desc;
@@ -44,12 +47,13 @@ class SiteController extends Controller
     protected $show_sidebar_menu = false;
     protected $show_review_menu = false;
     protected $show_stol_menu = false;
+    protected $show_tag_menu = true;
 
     public function __construct(MenusRepository $m_rep, TagsRepository $t_rep)
     {
         $this->m_rep = $m_rep;
         $this->t_rep = $t_rep;
-
+        // $this->p_rep = new \App\Repositories\PagesRepository(new \App\Models\Page);
     }
 
     /*
@@ -57,6 +61,8 @@ class SiteController extends Controller
      */
     public function preparePage()
     {
+        // $this->setMenu($this->p_rep->get());
+
         // TOP MENU
         if ($this->show_top_menu) {
             $menu_top = $this->m_rep->getMenu('top', app()->getLocale());
@@ -84,19 +90,26 @@ class SiteController extends Controller
             $this->vars = array_add($this->vars, 'review_menu', "");
         }
 
+
         //TAGS
-        $tags = $this->t_rep->all()
-            ->loadMissing('articles')
-            ->sortBy("title_" . app()->getLocale());
+        if ($this->show_tag_menu) {
 
-        if ($this->onlyPublished) {
-            $tags->loadMissing(['articles', 'articles.status']);
-            foreach ($tags as $tag) {
-                $tag->published();
+            $tags = $this->t_rep->all()
+                ->loadMissing('articles')
+                ->sortBy("title_" . app()->getLocale());
+
+            if ($this->onlyPublished) {
+                $tags->loadMissing(['articles', 'articles.status']);
+                foreach ($tags as $tag) {
+                    $tag->published();
+                }
             }
-        }
 
-        $this->vars = array_add($this->vars, 'tags', $tags);
+            $this->vars = array_add($this->vars, 'tags', $tags);
+            $this->vars = array_add($this->vars, 'tag_menu', true);
+        } else {
+            $this->vars = array_add($this->vars, 'tag_menu', "");
+        }
     }
 
     protected function renderOutput()
@@ -124,6 +137,7 @@ class SiteController extends Controller
         $this->show_top_menu = $page->show_top_menu;
         $this->show_sidebar_menu = $page->show_sidebar_menu;
         $this->show_review_menu = $page->show_review_menu;
+        $this->show_tag_menu = $page->show_tag_menu;
 
     }
 

@@ -20,12 +20,14 @@ class Page extends Model
         "show_top_menu",
         "show_sidebar_menu",
         "show_review_menu",
+        "show_tag_menu",
     ];
 
     protected $casts = [
         "show_top_menu" => "boolean",
         "show_sidebar_menu" => "boolean",
         "show_review_menu" => "boolean",
+        "show_tag_menu" => "boolean",
     ];
 
     public function status()
