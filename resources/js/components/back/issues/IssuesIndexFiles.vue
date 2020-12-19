@@ -68,6 +68,13 @@
 				</div>
 			</div>
 		</div>
+		<div class="card-footer">
+			<div class="row">
+				<div class="col">
+					<span class="text-danger">Добавляйте файлы только с названием <b>на латинице!</b></span>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
