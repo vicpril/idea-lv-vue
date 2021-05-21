@@ -93,7 +93,7 @@ Route::group(
          */
         // Route::name('old-article')->get('{cat}/{slug}', 'OldRouteController@fixRoute');
         Route::name('old-article')->get('{cat}/{slug}', function () {
-            return redirect('http://old-'. $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+            return redirect('https://old-'. $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
         });
 
     });

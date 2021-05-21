@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Url;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -44,6 +45,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('admin', function () {
             return !auth()->guest() && auth()->user()->role === 'admin';
         });
+
+        URL::forceScheme('https');
 
     }
 

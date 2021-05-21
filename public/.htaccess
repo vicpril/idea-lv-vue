@@ -17,6 +17,11 @@
     # Handle Authorization Header
     RewriteCond %{HTTP:WWW-Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:WWW-Authorization}]
+
+    #if not already *.nsuem.ru
+    RewriteCond %{HTTP_HOST} !^(.*)\.nsuem\.ru$ [NC] 
+    #if request is for blog/, go to ideaidealy.nsuem.ru
+    RewriteRule ^(.*)$ https://ideaidealy.nsuem.ru/$1 [r=301,nc] 
 </IfModule>
 
 php_value upload_max_filesize 20M
