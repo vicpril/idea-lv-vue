@@ -92,7 +92,7 @@ class AuthorsController extends SiteController
 
         $this->template = 'front.redcols';
 
-        $this->title = __("Редколлегия и редсовет");
+        $this->title = $page->loc->title;
 
         $redcols = $this->rc_rep->all()->sortBy('position');
         $redcols->loadMissing([
