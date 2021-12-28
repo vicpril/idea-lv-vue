@@ -2,9 +2,9 @@
   <ol class="breadcrumb bg-white p-0 m-0">
     <li class="breadcrumb-item">
 			<a href="{{ route('page', ['pageAlias'=>'archive']) }}#{{ $article->issue->year }}"
-				 >@lang('Журнал :year года', [
+				 >@lang('Идеи и идеалы, :year г., Том :tom', [
         'year' => $article->issue->year,
-        'fullno' => $article->issue->full_no
+        'tom' => $article->issue->tom
     ])</a></li>
     <li class="breadcrumb-item">
 			<a href="{{ route('articles', ['year' => $article->issue->year,

@@ -1,8 +1,8 @@
 @extends('front.index')
 
-@section('stol_menu')
+{{--@section('stol_menu')
     @include('front.components.stol_menu')
-@endsection
+@endsection--}}
 
 @section('breadcrumbs')
 	<div class="row mx-2">
