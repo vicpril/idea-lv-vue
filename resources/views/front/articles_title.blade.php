@@ -1,6 +1,6 @@
 @if($issue)
   @if(Config::get('app.locale') == 'ru')
-      Идеи и Идеалы. {{ $issue->year }} г. Том:{{ $issue->tom }}, № {{ $issue->no }}, Часть {{ $issue->part }} | 
+      Идеи и Идеалы. {{ $issue->year }} г. Том {{ $issue->tom }}, № {{ $issue->no }}, часть {{ $issue->part }} | 
   @else
       IDEAS AND IDEALS {{ $issue->year }} Volume {{ $issue->tom }} Issue {{ $issue->no }} part {{ $issue->part }} |
   @endif

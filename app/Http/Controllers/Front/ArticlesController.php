@@ -50,7 +50,7 @@ class ArticlesController extends SiteController
 
         $this->title = view('front.articles_title')->with('issue', $issue)->render();
 
-        $this->subtitle = __('Содержание тома');
+        $this->subtitle = __('Содержание');
 
         $this->vars = array_add($this->vars, 'issue', $issue);
         $this->vars = array_add($this->vars, 'nextIssue', $nextIssue);
