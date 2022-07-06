@@ -34,7 +34,7 @@
       "flag-icon-css": "^3.4.0",
       "font-awesome": "^4.7.0",
       "jquery-colorbox": "^1.6.4",
-      "jquery-validation": "^1.19.1",
+      "jquery-validation": "^1.19.5",
       "jsrender": "^1.0.5",
       "perfect-scrollbar": "^1.4.0",
       "raw-loader": "^0.5.1",
