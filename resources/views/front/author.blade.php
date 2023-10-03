@@ -27,7 +27,7 @@
 					@if( Config::get('app.locale') == 'ru' )
                  		{{$user->loc->short_name}}
                		@else
-                 		{{ $user->en->last_name }} {{ $user->en->first_name }}
+                 		{{ $user->en->first_name }} {{ $user->en->last_name }}
                		@endif
 
 				</figcaption>

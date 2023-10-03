@@ -24,7 +24,7 @@
                @if( Config::get('app.locale') == 'ru' )
                   <a class="author-name" href="{{ route('authors.show', $user->alias) }}">{{$user->loc->short_name}}</a>@if(!$loop->last)<span>,&ensp;</span>@endif
                @else
-                  <a class="author-name" href="{{ route('authors.show', $user->alias) }}">{{ $user->en->last_name }} {{ $user->en->first_name }}</a>@if(!$loop->last)<span>,&ensp;</span>@endif
+                  <a class="author-name" href="{{ route('authors.show', $user->alias) }}">{{ $user->en->first_name }} {{ $user->en->last_name }}</a>@if(!$loop->last)<span>,&ensp;</span>@endif
                @endif
             @endforeach
 
